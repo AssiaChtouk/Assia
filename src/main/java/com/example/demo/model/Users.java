@@ -4,14 +4,7 @@ import java.io.Serializable;
 import java.util.Collection;
 import java.util.List;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -28,26 +21,26 @@ public class Users implements Serializable , UserDetails {
 	private static final long serialVersionUID = 1L;
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int userId;
+    private long userId;
     private String username;
     private String password;
     private String nom;
     private String prenom;
     @OneToMany(mappedBy = "user", fetch=FetchType.EAGER)
 	@JsonIgnore
-    private List<Crsalle> crsalle;
+    private List<Reservation> rese;
     
-    
-	public List<Crsalle> getCrsalle() {
-		return crsalle;
+	
+	public List<Reservation> getRese() {
+		return rese;
 	}
-	public void setCrsalle(List<Crsalle> crsalle) {
-		this.crsalle = crsalle;
+	public void setRese(List<Reservation> rese) {
+		this.rese = rese;
 	}
-	public int getUserId() {
+	public long getUserId() {
 		return userId;
 	}
-	public void setUserId(int userId) {
+	public void setUserId(long userId) {
 		this.userId = userId;
 	}
 	public String getNom() {

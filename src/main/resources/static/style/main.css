@@ -13,6 +13,8 @@ and open the template in the editor.
 }
 body {
     font-family: Quicksand, sans-serif;
+    
+  
 
 }
 #nav{
@@ -101,6 +103,7 @@ box-shadow: none;
 .page-content{
     overflow: auto;
     max-height: 100vh;
+    background-color:rgba(255,255,255,0.75);
 }
 
 .sidebar-menu li .active {

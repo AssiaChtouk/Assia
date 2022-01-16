@@ -216,14 +216,14 @@ strong {
 .title-4 {
     font-weight: 500;
     font-size: 30px;
-    color: #393939;
+    color: rgb(64, 0, 64);
 }
 
 .title-5 {
     text-transform: capitalize;
     font-size: 22px;
     font-weight: 500;
-    color: #393939;
+    color: rgb(0, 0, 0);
 }
 
 .title-6 {
@@ -303,6 +303,7 @@ section {
 /*Page Objects*/
 .page-wrapper {
     overflow: hidden;
+    height:100%;
 }
 
 .page-container {

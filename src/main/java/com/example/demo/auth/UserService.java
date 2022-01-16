@@ -1,8 +1,11 @@
 package com.example.demo.auth;
-
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -24,5 +27,15 @@ public class UserService implements UserDetailsService {
         Users user = userRepository.findUsersWithName(username)
                 .orElseThrow(() -> new UsernameNotFoundException("User not found"));
         return user;
+    }
+    public List<GrantedAuthority> getAuthorities(Integer role) {
+        List<GrantedAuthority> authList = new ArrayList<GrantedAuthority>();
+        if (role.intValue() == 0) {
+            authList.add(new SimpleGrantedAuthority("USER"));
+        } else if (role.intValue() == 1) {
+            authList.add(new SimpleGrantedAuthority("ADMIN"));
+        }
+        System.out.println(authList);
+        return authList;
     }
 }
