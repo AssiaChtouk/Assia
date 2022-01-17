@@ -29,7 +29,6 @@ public class Users implements Serializable , UserDetails {
     private String password;
     private String nom;
     private String prenom;
-    private Users user;
     @OneToMany(mappedBy = "user", fetch=FetchType.EAGER)
 	@JsonIgnore
     private List<Reservation> rese;
